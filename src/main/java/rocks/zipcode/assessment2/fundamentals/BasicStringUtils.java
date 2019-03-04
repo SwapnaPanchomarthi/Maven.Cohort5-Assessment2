@@ -7,7 +7,7 @@ public class BasicStringUtils {
      * @return concatenation of `string1` and `string2`
      */
     public static String concatentate(String string1, String string2) {
-        return null;
+        return string1+string2;
     }
 
     /**
@@ -15,7 +15,10 @@ public class BasicStringUtils {
      * @return an identical string with characters in reverse order
      */
     public static String reverse(String string1) {
-        return null;
+        StringBuilder str1 = new StringBuilder();
+        str1.append(string1);
+        str1 = str1.reverse();
+        return str1.toString();
     }
 
     /**
@@ -24,7 +27,15 @@ public class BasicStringUtils {
      * @return concatenation of the reverse of `string1` and reverse of `string2`
      */
     public static String reverseThenConcatenate(String string1, String string2) {
-        return null;
+        StringBuilder str1 = new StringBuilder();
+        str1.append(string1);
+        str1 = str1.reverse();
+        StringBuilder str2 = new StringBuilder();
+        str2.append(string2);
+        str2 = str2.reverse();
+        StringBuilder newString = str1.append(str2);
+
+        return (newString).toString();
     }
 
     /**
@@ -32,9 +43,31 @@ public class BasicStringUtils {
      * @param charactersToRemove - Characters that should be removed from `string`
      * @return `string` with `charactersToRemove` removed
      */
-    public static String removeCharacters(String string, String charactersToRemove) {
-        return null;
+    public static String removeCharacters(String string, String charactersToRemove)
+    {
+
+    StringBuilder sb=new StringBuilder(string);
+        sb = sb.reverse();
+
+     char[] c = string.toCharArray();
+        char[] ch = charactersToRemove.toCharArray();
+        String new_Str = "";
+        for (int i = 0; i < c.length; i++) {
+
+
+                if (!(c[i] == ch[0]))
+                    new_Str += c[i];
+            }
+
+        /*StringBuilder sb = new StringBuilder(string);
+        char[] letters = string.toCharArray();*/
+
+        return new_Str;
     }
+
+
+
+
 
     /**
      * @param string - the string to be manipulated
@@ -42,6 +75,17 @@ public class BasicStringUtils {
      * @return reverse of `string` with `charactersToRemove` removed
      */
     public static String removeCharactersThenReverse(String string, String charactersToRemove) {
-        return null;
+        char[] c = string.toCharArray();
+        char[] ch = charactersToRemove.toCharArray();
+        String new_Str = "";
+        for (int i = 0; i < c.length; i++) {
+
+            if (!(c[i] == ch[0]))
+                new_Str += c[i];
+        }
+
+
+
+        return reverse(new_Str);
     }
 }

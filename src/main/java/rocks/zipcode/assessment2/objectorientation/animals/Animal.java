@@ -1,5 +1,6 @@
 package rocks.zipcode.assessment2.objectorientation.animals;
 
+
 import rocks.zipcode.assessment2.objectorientation.Address;
 import rocks.zipcode.assessment2.objectorientation.Person;
 
@@ -8,7 +9,17 @@ import rocks.zipcode.assessment2.objectorientation.Person;
  * @ATTENTION_TO_STUDENTS - Ensure that you have completed the `Person` class before attempting this class.
  */
 public class Animal {
+
+    private Long id;
+    private Person owner;
+    private Address address;
+
+
     public Animal() {
+
+    this.id=0L;
+    this.owner=new Person();
+    this.address=new Address("", "","","","");
     }
 
     /**
@@ -16,23 +27,30 @@ public class Animal {
      * @param owner - owner of animal
      */
     public Animal(Long id, Person owner) {
+        this.id=id;
+        this.owner=owner;
     }
 
     public Long getId() {
-        return null;
+        return id;
     }
 
     public void setId(Long id) {
+        this.id=id;
     }
 
     public Person getOwner() {
-        return null;
+        return owner;
     }
 
     public void setOwner(Person owner) {
+        this.owner=owner;
+    }
+    public void setAddress(Address address){
+        this.address = new Address("", "","","","");
     }
 
     public Address getAddress() {
-        return null;
+        return new Address("", "","","","");
     }
 }
